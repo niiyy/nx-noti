@@ -1,5 +1,3 @@
 class Mock {
-    constructor() {}
-
+  constructor() {}
 }
-

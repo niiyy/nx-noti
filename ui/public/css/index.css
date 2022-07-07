@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Koulen&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap');
 
 * {
   margin: 0;
@@ -7,50 +8,123 @@
   font-family: 'Poppins', sans-serif;
 }
 
-
 .notification-container {
-    position: absolute;
-    background-color: red;
-    top: 0.5%;
-    left: 0.3%;
-    height: 65%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column-reverse;
+  position: absolute;
+  top: 0.5%;
+  left: 0.3%;
+  height: 75%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  width: 325px;
 }
 
 .notification-row {
-    background-color: yellow;
-    margin: 2px;
-    padding: 3px;
-    min-height: 30px;
-    display: flex;
-    justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 2px;
+  padding: 3px;
+  min-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.notification-row::after {
+  content: ' ';
+  position: absolute;
+  width: 1%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  border-radius: 5px;
+  z-index: -1;
 }
 
 .notification-logo-container {
-    background-color: green;
-    display: flex;
-    align-items: center;
-    width: 19%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19%;
+  height: 50px;
+  border-radius: 15px;
+}
+
+.notification-logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.notification-logo-row::before {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+}
+
+.notification-logo-container ion-icon {
+  font-size: 19px;
 }
 
 .notification-body-container {
-    background-color: rgb(128, 113, 0);
-    width: 80%;
+  padding: 5px;
+  width: 80%;
 }
 
-/* .notification-container div {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 7px;
-    min-height: 40px;
-    width: 275px;
-    margin: 5px;
-    background-color: yellow;
-} */
+.notification-value {
+  font-size: 12.5px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  color: white;
+}
 
-/* .notification-row ion-icon {
-    width: 22px;
-    height: 22px;
-    display: flex;
-} */
+.valid-row-color {
+  border: 1px solid rgb(0, 255, 0);
+}
+.valid-row-color::before {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+.valid-logo-color {
+  color: rgb(0, 255, 0);
+}
+
+.warn-row-color {
+  border: 1px solid rgb(255, 140, 0);
+}
+.warn-row-color::before {
+  background-color: rgba(255, 140, 0, 0.1);
+}
+.warn-logo-color {
+  color: rgb(255, 140, 0);
+}
+
+.error-row-color {
+  border: 1px solid rgb(255, 0, 0);
+}
+.error-row-color::before {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+.error-logo-color {
+  color: rgb(255, 0, 0);
+}
+
+.normal-row-color {
+  border: 1px solid rgb(0, 255, 255);
+}
+.normal-row-color::before {
+  background-color: rgba(0, 255, 255, 0.1);
+}
+.normal-logo-color {
+  color: rgb(0, 255, 255);
+}
