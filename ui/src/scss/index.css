@@ -17,13 +17,21 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column-reverse;
-  width: 325px;
+  width: 300px;
+}
+
+@keyframes pop-notification {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes depop-notification {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .notification-row {
-  background-color: rgba(0, 0, 0, 0.4);
   margin: 2px;
-  padding: 3px;
   min-height: 30px;
   display: flex;
   justify-content: space-between;
@@ -31,18 +39,35 @@
   border-radius: 15px;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  animation: pop-notification 1.5s;
 }
 
-.notification-row::after {
-  content: ' ';
-  position: absolute;
-  width: 1%;
-  height: 100%;
-  bottom: 0;
-  left: 0;
-  border-radius: 5px;
-  z-index: -1;
+.succes-logo-bgcolor {
+  background-color: rgba(51, 104, 65, 0.5);
+}
+.succes-row-color {
+  background-color: rgba(76, 165, 98, 0.4);
+}
+
+.normal-logo-bgcolor {
+  background-color: rgba(76, 113, 165, 0.5);
+}
+.normal-row-color {
+  background-color: rgba(76, 113, 165, 0.4);
+}
+
+.error-logo-bgcolor {
+  background-color: rgba(146, 61, 61, 0.5);
+}
+.error-row-color {
+  background-color: rgba(146, 61, 61, 0.4);
+}
+
+.warn-logo-bgcolor {
+  background-color: rgba(146, 128, 61, 0.5);
+}
+.warn-row-color {
+  background-color: rgba(146, 128, 61, 0.4);
 }
 
 .notification-logo-container {
@@ -60,26 +85,21 @@
   justify-content: center;
   width: 35px;
   height: 35px;
-  border-radius: 10px;
+  border-radius: 12px;
   position: relative;
   overflow: hidden;
-}
-
-.notification-logo-row::before {
-  position: absolute;
-  content: ' ';
-  width: 100%;
-  height: 50%;
-  bottom: 0;
+  -webkit-box-shadow: 0px 5px 11px -7px #000000;
+  box-shadow: 0px 5px 11px -7px #000000;
 }
 
 .notification-logo-container ion-icon {
+  color: white;
   font-size: 19px;
 }
 
 .notification-body-container {
   padding: 5px;
-  width: 80%;
+  width: 81%;
 }
 
 .notification-value {
@@ -87,44 +107,4 @@
   font-weight: 300;
   letter-spacing: 0.3px;
   color: white;
-}
-
-.valid-row-color {
-  border: 1px solid rgb(0, 255, 0);
-}
-.valid-row-color::before {
-  background-color: rgba(0, 255, 0, 0.1);
-}
-.valid-logo-color {
-  color: rgb(0, 255, 0);
-}
-
-.warn-row-color {
-  border: 1px solid rgb(255, 140, 0);
-}
-.warn-row-color::before {
-  background-color: rgba(255, 140, 0, 0.1);
-}
-.warn-logo-color {
-  color: rgb(255, 140, 0);
-}
-
-.error-row-color {
-  border: 1px solid rgb(255, 0, 0);
-}
-.error-row-color::before {
-  background-color: rgba(255, 0, 0, 0.1);
-}
-.error-logo-color {
-  color: rgb(255, 0, 0);
-}
-
-.normal-row-color {
-  border: 1px solid rgb(0, 255, 255);
-}
-.normal-row-color::before {
-  background-color: rgba(0, 255, 255, 0.1);
-}
-.normal-logo-color {
-  color: rgb(0, 255, 255);
 }
