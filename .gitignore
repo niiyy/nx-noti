@@ -2,7 +2,12 @@
 node_modules
 save.html
 save.css
+dist
 
 ### UI
 ui/node_modules
 ui/dist
+
+### UI
+rc/node_modules
+rc/dist

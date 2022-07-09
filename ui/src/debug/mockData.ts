@@ -8,7 +8,7 @@ interface EventT {
 class _Mock {
   DEBUG_TIMER: number
   constructor() {
-    this.DEBUG_TIMER = 1_000
+    this.DEBUG_TIMER = 500
   }
 
   inject(event: EventT) {

@@ -3,13 +3,34 @@ import { uuid } from '../utils/misc'
 
 class _Notification {
   notifications: NotificationT[]
+  notificationsColors: any
   constructor() {
     this.notifications = []
+    this.notificationsColors = {
+      '^0': 'white',
+      '^1': 'black',
+      '^2': 'red',
+      '^3': 'orange',
+      '^4': 'green',
+      '^5': 'yellow',
+      '^6': 'blue',
+    }
+  }
+
+  setBodyColors(body: string) {
+    body = body
+      .replace(/\^0(\w+)/g, '<span style="color:white">$1</span>')
+      .replace(/\^1(\w+)/g, '<span style="color:black">$1</span>')
+      .replace(/\^2(\w+)/g, '<span style="color:red">$1</span>')
+      .replace(/\^3(\w+)/g, '<span style="color:orange">$1</span>')
+      .replace(/\^4(\w+)/g, "<span style='color:green'>$1</span>")
+      .replace(/\^5(\w+)/g, '<span style="color:yellow">$1</span>')
+      .replace(/\^6(\w+)/g, '<span style="color:#blue">$1</span>')
+
+    return body
   }
 
   notificationModel(notification: NotificationT): Node {
-
-
     const notificationRow = document.createElement('div')
     const logoContainer = document.createElement('div')
     const logoRow = document.createElement('div')
@@ -17,11 +38,11 @@ class _Notification {
     const bodyContainer = document.createElement('div')
     const body = document.createElement('p')
 
-    notificationRow.id = (notification.uuid as string)
+    notificationRow.id = notification.uuid as string
     notificationRow.className = `notification-row ${notification.type.toLowerCase()}-row-color`
     logoContainer.className = 'notification-logo-container'
     logoRow.className = `notification-logo-row ${notification.type.toLowerCase()}-logo-bgcolor`
-    ionIcon.setAttribute('name', (notification.icon as string))
+    ionIcon.setAttribute('name', notification.icon as string)
     bodyContainer.className = 'notification-body-container'
     body.className = 'notification-value'
 
@@ -34,9 +55,13 @@ class _Notification {
 
     bodyContainer.appendChild(body)
 
-    body.innerHTML = notification.body
+    body.innerHTML = this.setBodyColors(notification.body)
 
     return notificationRow
+  }
+
+  removeNotification(id: string) {
+    this.notifications = this.notifications.filter((noti) => noti.uuid !== id)
   }
 
   create(data: NotificationT) {
@@ -45,28 +70,30 @@ class _Notification {
       type: data.type ?? 'NORMAL',
       body: data.body ?? 'no message.',
       // @ts-ignore
-      icon: NotificationE[(data.type)],
+      icon: NotificationE[data.type ?? 'NORMAL'],
       uuid: uuid(),
     }
-
     this.notifications.push(notificationOptions)
 
     const notificationModel = this.notificationModel(notificationOptions)
     const root = document.getElementById('root') as HTMLDivElement
 
     if (root.firstChild) {
-        root.insertBefore(notificationModel, root.firstChild);
+      root.insertBefore(notificationModel, root.firstChild)
     } else {
-        root.appendChild(notificationModel);
+      root.appendChild(notificationModel)
     }
 
     setTimeout(() => {
-        const notification = document.getElementById((notificationOptions.uuid as string)) as HTMLDivElement
-        notification.style.animation = 'depop-notification 1.5s'
-        setTimeout(() => {
-            notification?.remove()
-        }, 1_500);
-    }, notificationOptions.ms);
+      const notification = document.getElementById(
+        notificationOptions.uuid as string
+      ) as HTMLDivElement
+      notification.style.animation = 'depop-notification 1.5s'
+      setTimeout(() => {
+        this.removeNotification(notification.id)
+        notification?.remove()
+      }, 1_500)
+    }, notificationOptions.ms)
   }
 }
 

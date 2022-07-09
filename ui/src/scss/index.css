@@ -21,13 +21,21 @@
 }
 
 @keyframes pop-notification {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes depop-notification {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .notification-row {
@@ -36,7 +44,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 13px;
   position: relative;
   overflow: hidden;
   animation: pop-notification 1.5s;
@@ -46,28 +54,28 @@
   background-color: rgba(51, 104, 65, 0.5);
 }
 .succes-row-color {
-  background-color: rgba(76, 165, 98, 0.4);
+  background-color: rgba(76, 165, 98, 0.6);
 }
 
 .normal-logo-bgcolor {
   background-color: rgba(76, 113, 165, 0.5);
 }
 .normal-row-color {
-  background-color: rgba(76, 113, 165, 0.4);
+  background-color: rgba(76, 113, 165, 0.6);
 }
 
 .error-logo-bgcolor {
   background-color: rgba(146, 61, 61, 0.5);
 }
 .error-row-color {
-  background-color: rgba(146, 61, 61, 0.4);
+  background-color: rgba(146, 61, 61, 0.6);
 }
 
 .warn-logo-bgcolor {
   background-color: rgba(146, 128, 61, 0.5);
 }
 .warn-row-color {
-  background-color: rgba(146, 128, 61, 0.4);
+  background-color: rgba(146, 128, 61, 0.6);
 }
 
 .notification-logo-container {
@@ -104,7 +112,7 @@
 
 .notification-value {
   font-size: 12.5px;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.3px;
   color: white;
 }

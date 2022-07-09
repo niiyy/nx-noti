@@ -6,43 +6,36 @@ if (isEnvBrowser()) {
   Mock.inject({
     data: {
       type: 'SUCCES',
-      body: "Je suis un succes",
+      body: 'Succes notification',
       ms: 8000,
     },
     type: 'createNotification',
   })
 
-  setTimeout(() => {
-    Mock.inject({
-        data: {
-          type: 'WARN',
-          body: "Je suis un warn",
-          ms: 5000,
-        },
-        type: 'createNotification',
-      })
-  }, 2000);
+  Mock.inject({
+    data: {
+      type: 'WARN',
+      body: 'Warn notification',
+      ms: 5000,
+    },
+    type: 'createNotification',
+  })
 
-  setTimeout(() => {
-    Mock.inject({
-        data: {
-          type: 'ERROR',
-          body: "Je suis une erreur",
-          ms: 2000,
-        },
-        type: 'createNotification',
-      })
-  }, 4000);
+  Mock.inject({
+    data: {
+      type: 'ERROR',
+      body: 'Error notification',
+      ms: 2000,
+    },
+    type: 'createNotification',
+  })
 
-  setTimeout(() => {
-    Mock.inject({
-        data: {
-          type: 'NORMAL',
-          body: "Je suis une normal",
-          ms: 4000,
-        },
-        type: 'createNotification',
-      })
-  }, 6000);
-
+  Mock.inject({
+    data: {
+      type: 'NORMAL',
+      body: 'Normal notification',
+      ms: 4000,
+    },
+    type: 'createNotification',
+  })
 }

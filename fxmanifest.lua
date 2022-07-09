@@ -8,10 +8,14 @@ games {
   "gta5",
 }
 
+client_script {
+  'dist/client/client.min.js'
+}
 
-ui_page 'ui/public/index.html'
+ui_page 'dist/ui/index.html'
 
 files {
-  'ui/public/index.html',
-  'ui/public/**/*'
+  'dist/ui/index.html',
+  'dist/ui/bundle.js',
+  'dist/ui/main.css',
 }
