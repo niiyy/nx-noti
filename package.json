@@ -2,7 +2,7 @@
   "name": "naf-noti",
   "version": "1.0.0",
   "main": "",
-  "author": "niiyy && Af0xz",
+  "author": "niiyy",
   "license": "MIT",
   "devDependencies": {
     "prettier": "^2.7.1"

@@ -7,7 +7,7 @@ if (isEnvBrowser()) {
     data: {
       type: 'SUCCES',
       body: 'Succes notification',
-      ms: 8000,
+      ms: 1000000,
     },
     type: 'createNotification',
   })
@@ -16,7 +16,16 @@ if (isEnvBrowser()) {
     data: {
       type: 'WARN',
       body: 'Warn notification',
-      ms: 5000,
+      ms: 1000000,
+    },
+    type: 'createNotification',
+  })
+
+  Mock.inject({
+    data: {
+      type: 'ERROR',
+      body: 'Error notification teste ^6this is on ^9bleu ^2and this on ^9red ^4and this on green',
+      ms: 1000000,
     },
     type: 'createNotification',
   })
@@ -25,16 +34,7 @@ if (isEnvBrowser()) {
     data: {
       type: 'ERROR',
       body: 'Error notification',
-      ms: 2000,
-    },
-    type: 'createNotification',
-  })
-
-  Mock.inject({
-    data: {
-      type: 'NORMAL',
-      body: 'Normal notification',
-      ms: 4000,
+      ms: 1000000,
     },
     type: 'createNotification',
   })

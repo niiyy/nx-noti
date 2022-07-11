@@ -1,7 +1,7 @@
 fx_version "cerulean"
 
 description "FiveM noti."
-author "niiyy & Af0xz"
+author "niiyy"
 version '1.0.0'
 
 games {

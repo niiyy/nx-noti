@@ -17,15 +17,17 @@ class _Notification {
     }
   }
 
+
   setBodyColors(body: string) {
     body = body
-      .replace(/\^0(\w+)/g, '<span style="color:white">$1</span>')
-      .replace(/\^1(\w+)/g, '<span style="color:black">$1</span>')
-      .replace(/\^2(\w+)/g, '<span style="color:red">$1</span>')
-      .replace(/\^3(\w+)/g, '<span style="color:orange">$1</span>')
-      .replace(/\^4(\w+)/g, "<span style='color:green'>$1</span>")
-      .replace(/\^5(\w+)/g, '<span style="color:yellow">$1</span>')
-      .replace(/\^6(\w+)/g, '<span style="color:#blue">$1</span>')
+      .replace(/\^0(\w+)/g, '<span style="color:white">$1')
+      .replace(/\^1(\w+)/g, '<span style="color:black">$1')
+      .replace(/\^2(\w+)/g, '<span style="color:red">$1')
+      .replace(/\^3(\w+)/g, '<span style="color:orange">$1')
+      .replace(/\^4(\w+)/g, "<span style='color:green'>$1")
+      .replace(/\^5(\w+)/g, '<span style="color:yellow">$1')
+      .replace(/\^6(\w+)/g, '<span style="color:blue">$1')
+      .replace(/\^9(\w+)/g, '$1</span>')
 
     return body
   }
@@ -73,6 +75,7 @@ class _Notification {
       icon: NotificationE[data.type ?? 'NORMAL'],
       uuid: uuid(),
     }
+    console.log(notificationOptions.icon)
     this.notifications.push(notificationOptions)
 
     const notificationModel = this.notificationModel(notificationOptions)
