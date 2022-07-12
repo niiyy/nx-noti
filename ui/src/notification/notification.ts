@@ -17,7 +17,6 @@ class _Notification {
     }
   }
 
-
   setBodyColors(body: string) {
     body = body
       .replace(/\^0(\w+)/g, '<span style="color:white">$1')

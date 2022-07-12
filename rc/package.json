@@ -1,7 +1,7 @@
 {
   "name": "rc",
   "version": "0.0.0",
-  "description": "FiveM notifications NAF",
+  "description": "FiveM notifications NX",
   "main": "",
   "scripts": {
     "watch": "webpack --mode development --watch",
